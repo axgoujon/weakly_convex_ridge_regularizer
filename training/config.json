@@ -1,0 +1,71 @@
+{
+    "exp_name": "WCRR-CNN",
+    "logging_info": {
+        "log_batch": 500,
+        "log_dir": "../trained_models/test/"
+    },
+    "multi_convolution": {
+        "num_channels": [
+            1,
+            4,
+            8,
+            60
+        ],
+        "size_kernels": [
+            5,
+            5,
+            5
+        ]
+    },
+    "noise_range": [
+        0,
+        30
+    ],
+    "rho_wcvx": 1,
+    "noise_val": 25,
+    "optimization": {
+        "lr": {
+            "conv": 0.005,
+            "spline_activation": 5e-05,
+            "mu": 0.05,
+            "spline_scaling": 0.005
+        }
+        
+    },
+    "spline_activation": {
+        "num_knots": 101,
+        "x_max": 0.1,
+        "x_min": -0.1
+    },
+    "spline_scaling": {
+        "init": 5.0,
+        "num_knots": 11
+    },
+    "train_dataloader": {
+        "batch_size": 128,
+        "num_workers": 1,
+        "train_data_file": "data/preprocessed/BSD/train.h5"
+    },
+    "training_options": {
+        "fixed_point_solver_bw_params": {
+            "max_iter": 50,
+            "tol": 0.001
+        },
+        "fixed_point_solver_fw_params": {
+            "max_iter": 200,
+            "tol": 0.0001
+        },
+        "n_batches": 6000,
+        "scheduler": {
+            "gamma": 0.75,
+            "n_batch": 500,
+            "nb_steps": 10,
+            "use": true
+        }
+    },
+    "val_dataloader": {
+        "batch_size": 1,
+        "num_workers": 1,
+        "val_data_file": "data/preprocessed/BSD/validation.h5"
+    }
+}

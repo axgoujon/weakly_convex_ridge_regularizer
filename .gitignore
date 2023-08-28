@@ -1,0 +1,4 @@
+training/data/preprocessed/
+bin/
+**/__pycache__/
+**/*tar.gz
